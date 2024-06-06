@@ -1,0 +1,118 @@
+/* Register.css */
+
+.logindiv {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.leftdiv {
+  background-color: #7038d6;
+  color: white;
+  padding-top: 8%;
+  font-weight: 400;
+  text-align: center;
+}
+
+.leftdiv img {
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  border-radius: 10px;
+}
+
+.rightdiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 20px;
+}
+
+.formdiv {
+  width: 100%;
+  max-width: 500px;
+}
+
+.formdiv h3 {
+  margin-bottom: 20px;
+}
+
+button.btn.google {
+  border: 1px solid #b4c2d5;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.password-icon {
+  cursor: pointer;
+  right: 25px;
+  top: 45%;
+  transform: translateY(-50%);
+  position: absolute;
+  background-color: transparent;
+  border: none;
+}
+
+button.btn.submit {
+  background-color: #7038d6;
+  width: 100%;
+  color: white;
+  height: 50px;
+  border: none;
+  margin-top: 20px;
+}
+
+.formLinkSentence {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#pageLink {
+  color: #7038d6;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+#pageLink:hover {
+  text-decoration: none;
+}
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  --bs-gutter-x: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+label {
+  font-size: 15px;
+}
+
+sup {
+  color: red;
+}
+.form-check-label span {
+  text-decoration: underline;
+}
+.form-check-label span:hover {
+  text-decoration: none;
+  color: #7038d6;
+}
+@media (max-width: 768px) {
+  .leftdiv {
+    padding-top: 5%;
+  }
+  .rightdiv {
+    padding: 10px;
+  }
+}

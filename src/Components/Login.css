@@ -1,0 +1,135 @@
+/* Register.css */
+
+.logindiv {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.leftdiv {
+  background-color: #7038d6;
+  color: white;
+  padding-top: 8%;
+  font-weight: 400;
+  text-align: center;
+}
+
+.leftdiv img {
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  border-radius: 10px;
+}
+
+.rightdiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 20px;
+}
+
+.formdiv {
+  width: 100%;
+  max-width: 500px;
+}
+
+.formdiv h3 {
+  margin-bottom: 20px;
+}
+
+button.btn.google {
+  border: 1px solid #b4c2d5;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.password-icon {
+  cursor: pointer;
+  right: 25px;
+  top: 70%;
+  transform: translateY(-50%);
+  position: absolute;
+  background-color: transparent;
+  border: none;
+}
+
+button.btn.submit {
+  background-color: #7038d6;
+  width: 100%;
+  color: white;
+  height: 50px;
+  border: none;
+  margin-top: 20px;
+}
+
+.formLinkSentence {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#pageLink {
+  color: #7038d6;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  --bs-gutter-x: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+label {
+  font-size: 15px;
+}
+
+sup {
+  color: red;
+}
+#forgot {
+  font-size: 14px;
+  color: rgb(85, 85, 85);
+}
+a#forgot:hover {
+  color: #733dd9;
+}
+header.p-3.text-white {
+  width: 100%;
+}
+.registerbtn {
+  border: 1px solid #733dd9;
+  color: #733dd9;
+}
+.registerbtn:hover {
+  border: 1px solid #733dd9;
+  color: white;
+  background-color: #733dd9;
+}
+.formLinkSentence a {
+  color: #733dd9;
+  text-decoration: underline;
+}
+.formLinkSentence a:hover {
+  color: #733dd9;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .leftdiv {
+    padding-top: 5%;
+  }
+  .rightdiv {
+    padding: 10px;
+  }
+}
