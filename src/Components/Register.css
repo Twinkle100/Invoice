@@ -1,11 +1,8 @@
-/* Register.css */
-
-.logindiv {
+.registerdiv {
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
 }
-
 .leftdiv {
   background-color: #7038d6;
   color: white;
@@ -49,10 +46,10 @@ button.btn.google {
   margin-bottom: 20px;
 }
 
-.password-icon {
+.registerdiv .password-icon {
   cursor: pointer;
   right: 25px;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
   position: absolute;
   background-color: transparent;
@@ -79,9 +76,11 @@ button.btn.submit {
   cursor: pointer;
   text-decoration: underline;
 }
+
 #pageLink:hover {
   text-decoration: none;
 }
+
 .container,
 .container-fluid,
 .container-lg,
@@ -101,18 +100,92 @@ label {
 sup {
   color: red;
 }
+
 .form-check-label span {
   text-decoration: underline;
 }
+
 .form-check-label span:hover {
   text-decoration: none;
   color: #7038d6;
 }
+
+.rightdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header .text-end {
+  margin-left: auto;
+}
+
+.formdiv {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+header.p-3.text-white {
+  width: 100%;
+}
+
+a.btn.loginbtn {
+  border: 1px solid #733dd9;
+  color: #733dd9;
+}
+
+a.btn.loginbtn:hover {
+  border: 1px solid #733dd9;
+  color: white;
+  background-color: #733dd9;
+}
+
 @media (max-width: 768px) {
   .leftdiv {
     padding-top: 5%;
   }
+
   .rightdiv {
     padding: 10px;
   }
 }
+
+#country {
+  position: relative;
+  border-radius: 7px;
+}
+
+div#optioninpdiv {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #7038d6;
+  height: 150px;
+  width: 260px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid #7038d6;
+}
+
+input.form-control,
+.react-tel-input .form-control,
+.react-tel-input input[type="tel"] {
+  height: 38px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.react-tel-input {
+  width: 100%;
+  position: relative;
+}
+
+.invalid-feedback {
+  color: red;
+  display: block;
+}
+
+/* cherck */

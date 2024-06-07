@@ -1,8 +1,13 @@
+// import React, { useState } from "react";
+// import "./Login.css";
+// import { FcGoogle } from "react-icons/fc";
+// import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
+// import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import "./Login.css";
-import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
-
+import { FcGoogle } from "react-icons/fc";
+import "./Login.css";
 export default function Login() {
   const [passwordVisible, setPasswordVisible] = useState(true);
 
@@ -42,10 +47,10 @@ export default function Login() {
               {/* <button type="button" class="btn btn-outline-light me-2">
                 Login
               </button> */}
-              <button type="button" class="btn registerbtn ">
+              <Link to="/" type="button" class="btn registerbtn ">
                 <FaUser />
                 Register
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -97,7 +102,10 @@ export default function Login() {
             Having issues logging in? <a class="pageLink">Click here</a>
           </p>
           <p className="formLinkSentence mt-3">
-            Don't have an account? <a class="pageLink">Signup now</a>
+            Don't have an account?{" "}
+            <Link to="/" class="pageLink">
+              Signup now
+            </Link>
           </p>
         </div>
       </div>
