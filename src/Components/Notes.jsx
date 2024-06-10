@@ -4,6 +4,7 @@ export default function Notes({ notes }) {
   return (
     <>
       <section>
+        <hr />
         <p>{notes}</p>
       </section>
     </>

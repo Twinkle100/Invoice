@@ -189,3 +189,30 @@ input.form-control,
 }
 
 /* cherck */
+button.btn.btn-print.fs-6 {
+  background-color: gray;
+  color: white;
+  border: 1px solid gray;
+}
+li.btn.btn-download.fs-6 {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+}
+li.btn.btn-send.fs-6 {
+  background-color: #0051ff;
+  color: white;
+  border: 1px solid #0051ff;
+}
+button.btn.btn-print.fs-6:hover {
+  background-color: transparent;
+  color: gray;
+}
+li.btn.btn-download.fs-6:hover {
+  background-color: transparent;
+  color: green;
+}
+li.btn.btn-send.fs-6:hover {
+  background-color: transparent;
+  color: #0051ff;
+}

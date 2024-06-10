@@ -11,7 +11,7 @@ export default function Footer({
 }) {
   return (
     <footer>
-      <ul className="d-flex flex-row flex-wrap text-align-center justify-content-center">
+      <ul className="d-flex flex-row flex-wrap text-align-center justify-content-center gap-3">
         <li>
           <span className="fw-bold">Your Name</span>
           {name}
@@ -30,11 +30,11 @@ export default function Footer({
         </li>
         <li>
           <span className="fw-bold">Account Holder</span>
-          {accountnumber}
+          {accountholder}
         </li>
         <li>
           <span className="fw-bold">Account Number</span>
-          {accountholder}
+          {accountnumber}
         </li>
         <li>
           <span className="fw-bold">

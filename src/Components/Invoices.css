@@ -8,3 +8,12 @@ main {
   max-width: 60%; /* A4 paper width */
   background-color: rgb(180, 182, 184);
 }
+.invoice label {
+  font-weight: 600;
+}
+.invoice input,
+.invoice textarea {
+  background-color: #ebebeb;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
