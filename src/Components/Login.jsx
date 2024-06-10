@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import "./Login.css";
+// import Invoices from "./Invoices";
 export default function Login() {
   const [passwordVisible, setPasswordVisible] = useState(true);
 
@@ -44,9 +45,10 @@ export default function Login() {
             </ul>
 
             <div class="text-end">
-              {/* <button type="button" class="btn btn-outline-light me-2">
-                Login
-              </button> */}
+              <Link to="/Invoices" type="button" class="btn registerbtn ">
+                <FaUser />
+                Invoice
+              </Link>
               <Link to="/" type="button" class="btn registerbtn ">
                 <FaUser />
                 Register

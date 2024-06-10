@@ -1,0 +1,10 @@
+/* body {
+  background-color: rgb(180, 182, 184);
+} */
+li {
+  list-style: none;
+}
+main {
+  max-width: 60%; /* A4 paper width */
+  background-color: rgb(180, 182, 184);
+}
