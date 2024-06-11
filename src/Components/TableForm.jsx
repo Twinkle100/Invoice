@@ -29,10 +29,6 @@ export default function TableForm({
       price,
       amount,
     };
-    setDescriptions("");
-    setQuantity("");
-    setPrice("");
-    setAmount("");
   };
 
   return (
