@@ -216,3 +216,7 @@ li.btn.btn-send.fs-6:hover {
   background-color: transparent;
   color: #0051ff;
 }
+option {
+  font-size: 13px;
+}
+/*  */

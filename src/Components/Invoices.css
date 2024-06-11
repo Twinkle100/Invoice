@@ -17,3 +17,6 @@ main {
   border: 1px solid gray;
   border-radius: 4px;
 }
+.bg-secondary {
+  background-color: rgb(206 209 213) !important;
+}

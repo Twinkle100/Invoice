@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-export default function Table() {
+export default function Table({ descriptions, quantity, price, amount }) {
+  useEffect(() => {
+    const check = () => {
+      quantity = parseFloat(quantity) || 0;
+      price = parseFloat(price) || 0;
+    };
+    check(amount);
+  }, [price, quantity]);
+
   return (
     <>
       <table width={"100%"}>
-        <thead className="bg-secondary text-white">
-          <tr>
+        <thead className="bg-secondary text-dark">
+          <tr className="">
             <th>Item Name</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -14,10 +22,10 @@ export default function Table() {
         </thead>
         <tbody>
           <tr>
-            <td>Potato</td>
-            <td>3</td>
-            <td>40</td>
-            <td>120</td>
+            <td>{descriptions}</td>
+            <td>{quantity}</td>
+            <td>{price}</td>
+            <td>{amount}</td>
           </tr>
         </tbody>
       </table>

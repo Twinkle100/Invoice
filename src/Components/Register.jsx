@@ -53,6 +53,7 @@ export default function Register() {
 
   const handlePhoneNumberChange = (input) => {
     setPhoneNumber(input);
+    console.log(input);
     setValid(validatePhoneNumber(input));
   };
 

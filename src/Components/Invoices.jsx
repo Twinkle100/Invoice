@@ -8,6 +8,7 @@ import Dates from "./Dates";
 import Notes from "./Notes";
 import Table from "./Table";
 import Footer from "./Footer";
+import TableForm from "./TableForm";
 
 export default function Invoices() {
   const [showInvoice, setShowInvoice] = useState(false);
@@ -24,6 +25,11 @@ export default function Invoices() {
   const [invoiceDate, setInvoiceDate] = useState();
   const [dueDate, setDueDate] = useState();
   const [notes, setNotes] = useState();
+  const [descriptions, setDescriptions] = useState();
+  const [quantity, setQuantity] = useState();
+  const [price, setPrice] = useState();
+  const [amount, setAmount] = useState();
+
   return (
     <>
       <main className="p-5  lg:p-0 bg-white rounded shadow mt-5  mx-auto invoice">
@@ -37,7 +43,12 @@ export default function Invoices() {
               invoiceNumber={invoiceNumber}
               dueDate={dueDate}
             />
-            <Table />
+            <Table
+              descriptions={descriptions}
+              quantity={quantity}
+              price={price}
+              amount={amount}
+            />
             <Notes notes={notes} />
 
             <Footer
@@ -209,6 +220,21 @@ export default function Invoices() {
                 ></input>
               </div>
             </div>
+            {/* table */}
+            <div className="row g-3 mt-1 mb-1">
+              <TableForm
+                descriptions={descriptions}
+                setDescriptions={setDescriptions}
+                quantity={quantity}
+                setQuantity={setQuantity}
+                price={price}
+                setPrice={setPrice}
+                amount={amount}
+                setAmount={setAmount}
+              />
+            </div>
+
+            {/* table */}
             <div className="row g-3 mt-1 mb-1">
               <div className="col-lg-12 col-sm-12 d-flex flex-column">
                 <label htmlFor="notes">Enter Your Note</label>
