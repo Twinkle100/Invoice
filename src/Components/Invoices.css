@@ -6,7 +6,7 @@ li {
 }
 main {
   max-width: 60%; /* A4 paper width */
-  background-color: rgb(180, 182, 184);
+  /* background-color: rgb(107, 110, 112); */
 }
 .invoice label {
   font-weight: 600;
@@ -14,7 +14,7 @@ main {
 .invoice input,
 .invoice textarea {
   background-color: #ebebeb;
-  border: 1px solid gray;
+  border: 1px solid #b7afaf;
   border-radius: 4px;
 }
 .bg-secondary {
@@ -46,4 +46,12 @@ main {
   top: 0;
   right: 0;
   cursor: pointer;
+}
+
+input#address,
+input#clientAddress {
+  height: 100px;
+}
+.main {
+  background-color: rgb(208, 219, 226);
 }

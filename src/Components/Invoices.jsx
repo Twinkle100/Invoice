@@ -55,7 +55,7 @@ export default function Invoices() {
   };
   return (
     <>
-      <main className="p-5  lg:p-0 bg-white rounded shadow mt-5  mx-auto invoice">
+      <main className="p-5  lg:p-0  rounded shadow mt-5  mx-auto invoice">
         {showInvoice ? (
           <div>
             <Header />
@@ -148,60 +148,64 @@ export default function Invoices() {
                 </div>
               </div>
             </div>
-            <div className="row g-3 mt-1 mb-1">
-              <div className="col-lg-6 col-sm-12 d-flex flex-column">
-                <label htmlFor="name">Enter Your Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Enter Your Name"
-                  autoComplete="off"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                ></input>
+            <div className="row mt-1 mb-1">
+              <div className="col-lg-6 col-sm-12 g-3 mt-1 mb-1">
+                <div className="col-lg-12 col-sm-12 d-flex flex-column">
+                  <label htmlFor="name">Enter Your Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Enter Your Name"
+                    autoComplete="off"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  ></input>
+                </div>
+                <div className="col-lg-12 col-sm-12 d-flex flex-column">
+                  <label htmlFor="address">Enter Your Address</label>
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    placeholder="Enter Your Address"
+                    autoComplete="off"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                  ></input>
+                </div>
               </div>
-              <div className="col-lg-6 col-sm-12 d-flex flex-column">
-                <label htmlFor="address">Enter Your Address</label>
-                <input
-                  type="text"
-                  name="address"
-                  id="address"
-                  placeholder="Enter Your Address"
-                  autoComplete="off"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                ></input>
+              <div className="col-lg-6 col-sm-12 g-3 mt-1 mb-1">
+                <div className="col-lg-12 col-sm-12 d-flex flex-column">
+                  <label htmlFor="client">Enter Your clientName</label>
+                  <input
+                    type="text"
+                    name="client"
+                    id="client"
+                    placeholder="Enter Your client Name"
+                    autoComplete="off"
+                    value={client}
+                    onChange={(e) => setClient(e.target.value)}
+                  ></input>
+                </div>
+                <div className="col-lg-12 col-sm-12 d-flex flex-column">
+                  <label htmlFor="clientAddress">
+                    Enter Your clientAddress
+                  </label>
+                  <input
+                    type="text"
+                    name="clientAddress"
+                    id="clientAddress"
+                    placeholder="Enter Your clientAddress"
+                    autoComplete="off"
+                    value={clientAddress}
+                    onChange={(e) => setClientAddress(e.target.value)}
+                  ></input>
+                </div>
               </div>
             </div>
             <div className="row g-3 mt-1 mb-1">
-              <div className="col-lg-6 col-sm-12 d-flex flex-column">
-                <label htmlFor="client">Enter Your clientName</label>
-                <input
-                  type="text"
-                  name="client"
-                  id="client"
-                  placeholder="Enter Your client Name"
-                  autoComplete="off"
-                  value={client}
-                  onChange={(e) => setClient(e.target.value)}
-                ></input>
-              </div>
-              <div className="col-lg-6 col-sm-12 d-flex flex-column">
-                <label htmlFor="clientAddress">Enter Your clientAddress</label>
-                <input
-                  type="text"
-                  name="clientAddress"
-                  id="clientAddress"
-                  placeholder="Enter Your clientAddress"
-                  autoComplete="off"
-                  value={clientAddress}
-                  onChange={(e) => setClientAddress(e.target.value)}
-                ></input>
-              </div>
-            </div>
-            <div className="row g-3 mt-1 mb-1">
-              <div className="col-lg-4 col-sm-12 d-flex flex-column">
+              <div className="col-lg-3 col-sm-12 d-flex flex-column">
                 <label htmlFor="email">Enter Your Email</label>
                 <input
                   type="email"
@@ -213,7 +217,7 @@ export default function Invoices() {
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
               </div>
-              <div className="col-lg-4 col-sm-12 d-flex flex-column">
+              <div className="col-lg-3 col-sm-12 d-flex flex-column">
                 <label htmlFor="website">Enter Your Website</label>
                 <input
                   type="url"
@@ -225,7 +229,7 @@ export default function Invoices() {
                   onChange={(e) => setWebsite(e.target.value)}
                 ></input>
               </div>
-              <div className="col-lg-4 col-sm-12 d-flex flex-column">
+              <div className="col-lg-3 col-sm-12 d-flex flex-column">
                 <label htmlFor="phone">Enter Your PhoneNumber</label>
                 <input
                   type="text"
@@ -235,6 +239,18 @@ export default function Invoices() {
                   autoComplete="off"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                ></input>
+              </div>
+              <div className="col-lg-3 col-sm-12 d-flex flex-column">
+                <label htmlFor="invoiceDate">Enter Your dueDate</label>
+                <input
+                  type="text"
+                  name="dueDate"
+                  id="dueDate"
+                  placeholder="Enter Your dueDate"
+                  autoComplete="off"
+                  value={dueDate}
+                  onChange={(e) => setDueDate(e.target.value)}
                 ></input>
               </div>
             </div>
@@ -265,7 +281,7 @@ export default function Invoices() {
               </div>
             </div> */}
 
-            <div className="row g-3 mt-1 mb-1">
+            {/* <div className="row g-3 mt-1 mb-1">
               <div className="col-lg-4 col-sm-12 d-flex flex-column">
                 <label htmlFor="invoiceDate">Enter Your dueDate</label>
                 <input
@@ -278,7 +294,7 @@ export default function Invoices() {
                   onChange={(e) => setDueDate(e.target.value)}
                 ></input>
               </div>
-            </div>
+            </div> */}
             {/* table */}
             <div className="row g-3 mt-1 mb-1">
               <TableForm
@@ -301,7 +317,7 @@ export default function Invoices() {
                   name="notes"
                   id="notes"
                   col="30"
-                  row="10"
+                  row="30"
                   placeholder="Enter Your Notes"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}

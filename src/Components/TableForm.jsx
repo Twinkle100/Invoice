@@ -60,6 +60,8 @@ export default function TableForm() {
           Add Item
         </button>
       </form>
+
+      <div className="calculationdiv"></div>
     </>
   );
 }
