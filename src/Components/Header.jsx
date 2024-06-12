@@ -10,7 +10,7 @@ export default function Header() {
       <header className="d-flex  align-items-center justify-content-between mb-3">
         <div>
           <h2 className="font-weight-bold text-uppercase tracking-wide">
-            Invoicer
+            Invoice
           </h2>
         </div>
         <div>

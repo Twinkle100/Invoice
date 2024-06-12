@@ -20,3 +20,30 @@ main {
 .bg-secondary {
   background-color: rgb(206 209 213) !important;
 }
+.logodiv {
+  height: 120px;
+  width: 50%;
+  text-align: center;
+  border: 1px solid #aba2a2;
+  background-color: #ebe9e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-preview {
+  width: 100px;
+  height: 100px;
+}
+
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}

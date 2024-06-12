@@ -12,17 +12,19 @@ import TableForm from "./TableForm";
 
 export default function Invoices() {
   const [showInvoice, setShowInvoice] = useState(false);
+  const [invoiceNumber, setInvoiceNumber] = useState(1);
+  const [invoiceDate, setInvoiceDate] = useState();
+
   const [name, setName] = useState();
   const [address, setAddress] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
-  const [bankName, setBankName] = useState();
-  const [bankAccount, setbankAccount] = useState();
+  // const [bankName, setBankName] = useState();
+  // const [bankAccount, setbankAccount] = useState();
   const [website, setWebsite] = useState();
   const [client, setClient] = useState();
   const [clientAddress, setClientAddress] = useState();
-  const [invoiceNumber, setInvoiceNumber] = useState();
-  const [invoiceDate, setInvoiceDate] = useState();
+
   const [dueDate, setDueDate] = useState();
   const [notes, setNotes] = useState();
   const [descriptions, setDescriptions] = useState();
@@ -30,6 +32,27 @@ export default function Invoices() {
   const [price, setPrice] = useState();
   const [amount, setAmount] = useState();
 
+  const [logo, setLogo] = useState(null);
+
+  const handleLogoChange = (event) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setLogo(e.target.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+
+  const handleRemoveLogo = (e) => {
+    e.stopPropagation();
+    setLogo(null);
+  };
+
+  const handleDivClick = () => {
+    document.getElementById("logo").click();
+  };
   return (
     <>
       <main className="p-5  lg:p-0 bg-white rounded shadow mt-5  mx-auto invoice">
@@ -56,9 +79,9 @@ export default function Invoices() {
               address={address}
               email={email}
               phone={phone}
-              bankname={bankName}
-              accountholder={name}
-              accountnumber={bankAccount}
+              // bankname={bankName}
+              // accountholder={name}
+              // accountnumber={bankAccount}
             />
             <button className="MT-5 " onClick={() => setShowInvoice(false)}>
               Edit Information
@@ -66,6 +89,65 @@ export default function Invoices() {
           </div>
         ) : (
           <div className="d-flex flex-column text-align-center justify-content-center">
+            <div className="row d-flex justify-content-between  mt-1 mb-1">
+              <div className="col-lg-6 col-sm-12 d-flex flex-column">
+                <div
+                  htmlFor="logo"
+                  style={{ cursor: "pointer" }}
+                  className="logodiv"
+                >
+                  <div className="logo-input" onClick={handleDivClick}>
+                    {logo ? (
+                      <div className="logo-container">
+                        <img src={logo} alt="Logo" className="logo-preview" />
+                        <MdClose
+                          className="close-icon"
+                          onClick={handleRemoveLogo}
+                        />
+                      </div>
+                    ) : (
+                      <>
+                        <span>+ Add Logo</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+                <input
+                  type="file"
+                  id="logo"
+                  name="logo"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                  onChange={handleLogoChange}
+                />
+              </div>
+              <div className="col-lg-3 col-sm-12 d-flex flex-column">
+                <div className="col-lg-12 col-sm-12">
+                  <label htmlFor="invoiceNumber">Invoice Number</label>
+                  <input
+                    type="text"
+                    name="invoiceNumber"
+                    id="invoiceNumber"
+                    placeholder="Enter Your invoiceNumber"
+                    autoComplete="off"
+                    value={`#${invoiceNumber}`}
+                  ></input>
+                </div>
+                <div className="col-lg-12 col-sm-12 d-flex flex-column">
+                  <label htmlFor="invoiceDate">Invoice Date</label>
+
+                  <input
+                    type="date"
+                    name="invoiceDate"
+                    id="invoiceDate"
+                    autoComplete="off"
+                    placeholder="Enter Your invoiceDate"
+                    value={invoiceDate}
+                    onChange={(e) => setInvoiceDate(e.target.value)}
+                  ></input>
+                </div>
+              </div>
+            </div>
             <div className="row g-3 mt-1 mb-1">
               <div className="col-lg-6 col-sm-12 d-flex flex-column">
                 <label htmlFor="name">Enter Your Name</label>
@@ -89,6 +171,32 @@ export default function Invoices() {
                   autoComplete="off"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
+                ></input>
+              </div>
+            </div>
+            <div className="row g-3 mt-1 mb-1">
+              <div className="col-lg-6 col-sm-12 d-flex flex-column">
+                <label htmlFor="client">Enter Your clientName</label>
+                <input
+                  type="text"
+                  name="client"
+                  id="client"
+                  placeholder="Enter Your client Name"
+                  autoComplete="off"
+                  value={client}
+                  onChange={(e) => setClient(e.target.value)}
+                ></input>
+              </div>
+              <div className="col-lg-6 col-sm-12 d-flex flex-column">
+                <label htmlFor="clientAddress">Enter Your clientAddress</label>
+                <input
+                  type="text"
+                  name="clientAddress"
+                  id="clientAddress"
+                  placeholder="Enter Your clientAddress"
+                  autoComplete="off"
+                  value={clientAddress}
+                  onChange={(e) => setClientAddress(e.target.value)}
                 ></input>
               </div>
             </div>
@@ -130,7 +238,7 @@ export default function Invoices() {
                 ></input>
               </div>
             </div>
-            <div className="row g-3 mt-1 mb-1">
+            {/* <div className="row g-3 mt-1 mb-1">
               <div className="col-lg-6 col-sm-12 d-flex flex-column">
                 <label htmlFor="bankName">Enter Your BankName</label>
                 <input
@@ -155,58 +263,9 @@ export default function Invoices() {
                   onChange={(e) => setbankAccount(e.target.value)}
                 ></input>
               </div>
-            </div>
+            </div> */}
+
             <div className="row g-3 mt-1 mb-1">
-              <div className="col-lg-6 col-sm-12 d-flex flex-column">
-                <label htmlFor="client">Enter Your clientName</label>
-                <input
-                  type="text"
-                  name="client"
-                  id="client"
-                  placeholder="Enter Your client Name"
-                  autoComplete="off"
-                  value={client}
-                  onChange={(e) => setClient(e.target.value)}
-                ></input>
-              </div>
-              <div className="col-lg-6 col-sm-12 d-flex flex-column">
-                <label htmlFor="clientAddress">Enter Your clientAddress</label>
-                <input
-                  type="text"
-                  name="clientAddress"
-                  id="clientAddress"
-                  placeholder="Enter Your clientAddress"
-                  autoComplete="off"
-                  value={clientAddress}
-                  onChange={(e) => setClientAddress(e.target.value)}
-                ></input>
-              </div>
-            </div>
-            <div className="row g-3 mt-1 mb-1">
-              <div className="col-lg-4 col-sm-12 d-flex flex-column">
-                <label htmlFor="invoiceNumber">Enter Your invoiceNumber</label>
-                <input
-                  type="date"
-                  name="invoiceNumber"
-                  id="invoiceNumber"
-                  placeholder="Enter Your invoiceNumber"
-                  autoComplete="off"
-                  value={invoiceNumber}
-                  onChange={(e) => setInvoiceNumber(e.target.value)}
-                ></input>
-              </div>
-              <div className="col-lg-4 col-sm-12 d-flex flex-column">
-                <label htmlFor="invoiceDate">Enter Your invoiceDate</label>
-                <input
-                  type="date"
-                  name="invoiceDate"
-                  id="invoiceDate"
-                  placeholder="Enter Your invoiceDate"
-                  autoComplete="off"
-                  value={invoiceDate}
-                  onChange={(e) => setInvoiceDate(e.target.value)}
-                ></input>
-              </div>
               <div className="col-lg-4 col-sm-12 d-flex flex-column">
                 <label htmlFor="invoiceDate">Enter Your dueDate</label>
                 <input
