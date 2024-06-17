@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./TableForm.css";
 
 import Row from "./Row";
+import Calculation from "./Calculation";
 export default function TableForm() {
   const [rows, setRows] = useState([
     { description: "", quantity: 0, price: 0, amount: 0 },
@@ -60,8 +61,9 @@ export default function TableForm() {
           Add Item
         </button>
       </form>
-
-      <div className="calculationdiv"></div>
+      <div>
+        <Calculation rows={rows} />
+      </div>
     </>
   );
 }

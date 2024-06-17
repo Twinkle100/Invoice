@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Invoices.css";
 import Header from "./Header";
-
 import MainDetails from "./MainDetails";
 import ClientDetails from "./ClientDetails";
 import Dates from "./Dates";
@@ -13,25 +12,19 @@ import TableForm from "./TableForm";
 export default function Invoices() {
   const [showInvoice, setShowInvoice] = useState(false);
   const [invoiceNumber, setInvoiceNumber] = useState(1);
-  const [invoiceDate, setInvoiceDate] = useState();
-
-  const [name, setName] = useState();
-  const [address, setAddress] = useState();
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-  // const [bankName, setBankName] = useState();
-  // const [bankAccount, setbankAccount] = useState();
-  const [website, setWebsite] = useState();
-  const [client, setClient] = useState();
-  const [clientAddress, setClientAddress] = useState();
-
-  const [dueDate, setDueDate] = useState();
-  const [notes, setNotes] = useState();
-  const [descriptions, setDescriptions] = useState();
-  const [quantity, setQuantity] = useState();
-  const [price, setPrice] = useState();
-  const [amount, setAmount] = useState();
-
+  const [invoiceDate, setInvoiceDate] = useState("");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [website, setWebsite] = useState("");
+  const [client, setClient] = useState("");
+  const [clientAddress, setClientAddress] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [notes, setNotes] = useState("");
+  const [rows, setRows] = useState([
+    { description: "", quantity: 0, price: 0, amount: 0 },
+  ]);
   const [logo, setLogo] = useState(null);
 
   const handleLogoChange = (event) => {
@@ -53,9 +46,10 @@ export default function Invoices() {
   const handleDivClick = () => {
     document.getElementById("logo").click();
   };
+
   return (
     <>
-      <main className="p-5  lg:p-0  rounded shadow mt-5  mx-auto invoice">
+      <main className="p-5 lg:p-0 rounded shadow mt-5 mx-auto invoice">
         {showInvoice ? (
           <div>
             <Header />
@@ -66,30 +60,16 @@ export default function Invoices() {
               invoiceNumber={invoiceNumber}
               dueDate={dueDate}
             />
-            <Table
-              descriptions={descriptions}
-              quantity={quantity}
-              price={price}
-              amount={amount}
-            />
+            <Table rows={rows} />
             <Notes notes={notes} />
-
-            <Footer
-              name={name}
-              address={address}
-              email={email}
-              phone={phone}
-              // bankname={bankName}
-              // accountholder={name}
-              // accountnumber={bankAccount}
-            />
-            <button className="MT-5 " onClick={() => setShowInvoice(false)}>
+            <Footer name={name} address={address} email={email} phone={phone} />
+            <button className="mt-5" onClick={() => setShowInvoice(false)}>
               Edit Information
             </button>
           </div>
         ) : (
           <div className="d-flex flex-column text-align-center justify-content-center">
-            <div className="row d-flex justify-content-between  mt-1 mb-1">
+            <div className="row d-flex justify-content-between mt-1 mb-1">
               <div className="col-lg-6 col-sm-12 d-flex flex-column">
                 <div
                   htmlFor="logo"
@@ -100,15 +80,15 @@ export default function Invoices() {
                     {logo ? (
                       <div className="logo-container">
                         <img src={logo} alt="Logo" className="logo-preview" />
-                        <MdClose
+                        <button
                           className="close-icon"
                           onClick={handleRemoveLogo}
-                        />
+                        >
+                          Remove
+                        </button>
                       </div>
                     ) : (
-                      <>
-                        <span>+ Add Logo</span>
-                      </>
+                      <span>+ Add Logo</span>
                     )}
                   </div>
                 </div>
@@ -122,7 +102,7 @@ export default function Invoices() {
                 />
               </div>
               <div className="col-lg-3 col-sm-12 d-flex flex-column">
-                <div className="col-lg-12 col-sm-12">
+                <div className="row">
                   <label htmlFor="invoiceNumber">Invoice Number</label>
                   <input
                     type="text"
@@ -131,11 +111,11 @@ export default function Invoices() {
                     placeholder="Enter Your invoiceNumber"
                     autoComplete="off"
                     value={`#${invoiceNumber}`}
-                  ></input>
+                    onChange={(e) => setInvoiceNumber(e.target.value)}
+                  />
                 </div>
-                <div className="col-lg-12 col-sm-12 d-flex flex-column">
+                <div className="row d-flex flex-column">
                   <label htmlFor="invoiceDate">Invoice Date</label>
-
                   <input
                     type="date"
                     name="invoiceDate"
@@ -144,7 +124,7 @@ export default function Invoices() {
                     placeholder="Enter Your invoiceDate"
                     value={invoiceDate}
                     onChange={(e) => setInvoiceDate(e.target.value)}
-                  ></input>
+                  />
                 </div>
               </div>
             </div>
@@ -160,7 +140,7 @@ export default function Invoices() {
                     autoComplete="off"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                  ></input>
+                  />
                 </div>
                 <div className="col-lg-12 col-sm-12 d-flex flex-column">
                   <label htmlFor="address">Enter Your Address</label>
@@ -172,7 +152,7 @@ export default function Invoices() {
                     autoComplete="off"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                  ></input>
+                  />
                 </div>
               </div>
               <div className="col-lg-6 col-sm-12 g-3 mt-1 mb-1">
@@ -186,7 +166,7 @@ export default function Invoices() {
                     autoComplete="off"
                     value={client}
                     onChange={(e) => setClient(e.target.value)}
-                  ></input>
+                  />
                 </div>
                 <div className="col-lg-12 col-sm-12 d-flex flex-column">
                   <label htmlFor="clientAddress">
@@ -200,7 +180,7 @@ export default function Invoices() {
                     autoComplete="off"
                     value={clientAddress}
                     onChange={(e) => setClientAddress(e.target.value)}
-                  ></input>
+                  />
                 </div>
               </div>
             </div>
@@ -215,7 +195,7 @@ export default function Invoices() {
                   autoComplete="off"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                ></input>
+                />
               </div>
               <div className="col-lg-3 col-sm-12 d-flex flex-column">
                 <label htmlFor="website">Enter Your Website</label>
@@ -227,7 +207,7 @@ export default function Invoices() {
                   autoComplete="off"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
-                ></input>
+                />
               </div>
               <div className="col-lg-3 col-sm-12 d-flex flex-column">
                 <label htmlFor="phone">Enter Your PhoneNumber</label>
@@ -239,77 +219,24 @@ export default function Invoices() {
                   autoComplete="off"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                ></input>
+                />
               </div>
               <div className="col-lg-3 col-sm-12 d-flex flex-column">
-                <label htmlFor="invoiceDate">Enter Your dueDate</label>
+                <label htmlFor="dueDate">Enter Your dueDate</label>
                 <input
-                  type="text"
+                  type="date"
                   name="dueDate"
                   id="dueDate"
                   placeholder="Enter Your dueDate"
                   autoComplete="off"
                   value={dueDate}
                   onChange={(e) => setDueDate(e.target.value)}
-                ></input>
+                />
               </div>
             </div>
-            {/* <div className="row g-3 mt-1 mb-1">
-              <div className="col-lg-6 col-sm-12 d-flex flex-column">
-                <label htmlFor="bankName">Enter Your BankName</label>
-                <input
-                  type="text"
-                  name="bankName"
-                  id="bankName"
-                  placeholder="Enter Your BankName"
-                  autoComplete="off"
-                  value={bankName}
-                  onChange={(e) => setBankName(e.target.value)}
-                ></input>
-              </div>
-              <div className="col-lg-6 col-sm-12 d-flex flex-column">
-                <label htmlFor="bankNumber">Enter Your BankNumber</label>
-                <input
-                  type="text"
-                  name="bankNumber"
-                  id="bankNumber"
-                  placeholder="Enter Your BankNumber"
-                  autoComplete="off"
-                  value={bankAccount}
-                  onChange={(e) => setbankAccount(e.target.value)}
-                ></input>
-              </div>
-            </div> */}
-
-            {/* <div className="row g-3 mt-1 mb-1">
-              <div className="col-lg-4 col-sm-12 d-flex flex-column">
-                <label htmlFor="invoiceDate">Enter Your dueDate</label>
-                <input
-                  type="text"
-                  name="dueDate"
-                  id="dueDate"
-                  placeholder="Enter Your dueDate"
-                  autoComplete="off"
-                  value={dueDate}
-                  onChange={(e) => setDueDate(e.target.value)}
-                ></input>
-              </div>
-            </div> */}
-            {/* table */}
             <div className="row g-3 mt-1 mb-1">
-              <TableForm
-                descriptions={descriptions}
-                setDescriptions={setDescriptions}
-                quantity={quantity}
-                setQuantity={setQuantity}
-                price={price}
-                setPrice={setPrice}
-                amount={amount}
-                setAmount={setAmount}
-              />
+              <TableForm rows={rows} setRows={setRows} />
             </div>
-
-            {/* table */}
             <div className="row g-3 mt-1 mb-1">
               <div className="col-lg-12 col-sm-12 d-flex flex-column">
                 <label htmlFor="notes">Enter Your Note</label>

@@ -1,0 +1,35 @@
+.position-relative {
+  position: relative;
+}
+
+.symbol-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.percenticon {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggleicon {
+  position: absolute;
+  right: 81%;
+
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+input {
+  padding-right: 40px; /* Space for toggle icon */
+  padding-left: 30px; /* Space for rupee icon if needed */
+}
+
+.discount-input input {
+  width: 20%;
+}
