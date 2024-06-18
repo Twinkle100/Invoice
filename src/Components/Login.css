@@ -36,7 +36,7 @@
   margin-bottom: 20px;
 }
 
-button.btn.google {
+/* button.btn.google {
   border: 1px solid #b4c2d5;
   width: 100%;
   height: 50px;
@@ -45,7 +45,7 @@ button.btn.google {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-}
+} */
 
 .password-icon {
   cursor: pointer;
@@ -142,4 +142,29 @@ input.form-control,
   height: 38px;
   width: 100%;
   box-sizing: border-box;
+}
+/* CHECK */
+.google-login-container {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+}
+
+.google-login-button {
+  width: 1000px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: white !important;
+  border: 1px solid #b4c2d5 !important;
+  height: 50px !important;
+  margin-bottom: 20px !important;
+}
+
+.google-login-button svg {
+  margin-right: 10px; /* Adjust the margin as needed */
+  width: 500px;
+}
+.google-login-button svg {
+  margin-right: 10px; /* Adjust the margin as needed */
 }

@@ -1,14 +1,10 @@
-// import React, { useState } from "react";
-// import "./Login.css";
-// import { FcGoogle } from "react-icons/fc";
-// import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
-// import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import "./Login.css";
 // import Invoices from "./Invoices";
+import { GoogleLogin } from "@react-oauth/google";
 export default function Login() {
   const [passwordVisible, setPasswordVisible] = useState(true);
 
@@ -61,9 +57,17 @@ export default function Login() {
         <div className="align-middle mt-5 formdiv px-4 px-md-5">
           <h3>Login to your Refrens account</h3>
           <form className="my-auto">
-            <button type="button" className="btn google">
-              <FcGoogle /> Continue with Google
-            </button>
+            <div className="google-login-container">
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+                className="google-login-button"
+              />
+            </div>
             <div className="d-flex  my-4">
               <hr className="flex-grow-1" />
               <span className="px-2">OR</span>

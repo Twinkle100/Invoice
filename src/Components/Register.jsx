@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { GoogleLogin } from "@react-oauth/google";
 import {
   FaEye,
   FaEyeSlash,
@@ -107,9 +108,14 @@ export default function Register() {
         <div className="align-middle mt-5 formdiv px-4 px-md-5 mx-auto">
           <h3>Sign Up on Refrens</h3>
           <form className="my-auto">
-            <button type="button" className="btn google">
-              <FcGoogle /> Continue with Google
-            </button>
+            <GoogleLogin
+              onSuccess={(credentialResponse) => {
+                console.log(credentialResponse);
+              }}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            />
             <div className="d-flex align-items-center my-4">
               <hr className="flex-grow-1" />
               <span className="px-2">OR</span>
